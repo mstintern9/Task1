@@ -8,11 +8,22 @@ function renderSpecificValue(a, targetDiv) {
   }
 }
 
-debugger;
+let count = 0;
+
+function myFunction(obj) {
+  for (var key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      count = count + 1;
+      myFunction(obj[key]);
+    }
+  }
+}
+
+myFunction(a);
 
 const divId = [];
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= count; i++) {
   divId.push(`element-${i}`);
 }
 
